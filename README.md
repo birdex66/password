@@ -1,5 +1,6 @@
 # password
-Password manager created with Java that uses AES for encryption and JFrame for user interface. Please suggest any changes I should make! I have a lot to optimize...
+Password manager created with Java that uses CBC style AES encryption. 
 
 PLEASE READ:
-It is encouraged to use Eclipse IDE for this program, and use JDK-17 for the project pathway.
+  - If you're using the runnable JAR, make sure JDK 23 is installed on your device.
+  - If you're running code from your IDE, make sure JDK 23 is set as your project pathway.
