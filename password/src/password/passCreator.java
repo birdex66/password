@@ -8,9 +8,9 @@ public class passCreator implements PassCreatorInterface {
     // ArrayList to store passNew objects
     private ArrayList<passNew> accountList;
     // File name for storing passwords
-    private String fileName = "password-main\\password\\passwords.dat";
+    private String fileName = "passwords.dat";
     // File name for storing encrypted passwords
-    private String protectedFileName = "password-main\\password\\encryptedPasswords.dat";
+    private String protectedFileName = "encryptedPasswords.dat";
 
     // Constructor to initialize accountList
     public passCreator() {

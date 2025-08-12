@@ -64,7 +64,7 @@ public class Main implements ActionListener{
 
 
     // Main method
-    public static void main(String[] args) throws Exception{        
+    public static void main(String[] args) throws Exception{
         new Main();
         
         // Loop for account creation or login
@@ -77,7 +77,7 @@ public class Main implements ActionListener{
                 access = login();
             }else if(choice.equals("T")) {
             	 try {
-                     PassCreatorInterface passCreator = new passCreator("password-main\\password\\temp.dat");
+                     PassCreatorInterface passCreator = new passCreator("temp.dat");
                      
                      passCreator.addAccount("user1", "password1");
                      passCreator.addAccount("user2", "password2");
@@ -96,7 +96,7 @@ public class Main implements ActionListener{
                      passCreator.remove(foundAccount);
                      
                      passCreator.printAllAccounts();
-                     clearFile("password-main\\password\\temp.dat");
+                     clearFile("temp.dat");
                      System.exit(0);
                  } catch (IOException e) {
                      e.printStackTrace();
@@ -148,7 +148,7 @@ public class Main implements ActionListener{
                     String password = scan.next();
                     passNew reference = account.getAccountByName(user, password);
                     if(reference != null) {
-                        editPassword(outName, "password-main\\password\\temp.dat" , password, user, reference);
+                        editPassword(outName, "temp.dat" , password, user, reference);
                     }
                 // Remove password
                 }else if(choice == 4) {
@@ -159,7 +159,7 @@ public class Main implements ActionListener{
                     passNew reference = account.getAccountByName(user, password);
                     if(reference != null) {
                         account.remove(reference);
-                        removePassword(outName, "password-main\\password\\temp.dat" , password, user);
+                        removePassword(outName, "temp.dat" , password, user);
                     }
                 // Exit
                 }else if(choice == 5) {
@@ -509,7 +509,6 @@ public class Main implements ActionListener{
     	  	try {
 				encryptFile(outName, inName, inputPassword);
 			} catch (FileNotFoundException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
             clearFile(outName);
@@ -521,7 +520,6 @@ public class Main implements ActionListener{
      
      @SuppressWarnings("deprecation")
 	private boolean loginGUI() throws Exception{
-    	// TODO Auto-generated method stub
     	 	boolean access = false;
     	 	inputName = userText.getText();
 	 		//@SuppressWarnings("deprecation")
@@ -740,7 +738,7 @@ public class Main implements ActionListener{
     	    if (reference != null) {
     	        String newUsername = JOptionPane.showInputDialog("Enter the new username:",username);
     	        String newPassword = JOptionPane.showInputDialog("Enter the new password:",password);
-    	        editPasswordGUI(outName, "password-main\\password\\temp.dat", username, password, newUsername, newPassword, reference);
+    	        editPasswordGUI(outName, "temp.dat", username, password, newUsername, newPassword, reference);
     	        refreshModel();
     	    } else {
     	        JOptionPane.showMessageDialog(panel, "Account not found.");
@@ -787,7 +785,7 @@ public class Main implements ActionListener{
 	    passNew accountToRemove = account.getAccountByName(username, password);
 	    if (accountToRemove != null) {
 	        account.remove(accountToRemove);
-	        removePassword(outName, "password-main\\password\\temp.dat" , password, username);
+	        removePassword(outName, "temp.dat" , password, username);
 	        refreshModel();
 	    } else {
 	        JOptionPane.showMessageDialog(panel, "Account not found.");
